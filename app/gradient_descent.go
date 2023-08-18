@@ -5,30 +5,33 @@ import (
 	"math"
 )
 
+type fun func(float642 float64) float64
+
+// one dimension function
 func f1(x float64) float64 {
 	return 0.5 * math.Pow(x-0.25, 2)
 }
 
+// derived function
 func h1(x float64) float64 {
 	return 0.5 * 2 * (x - 0.25)
 }
 
 // 一维梯度下降
-func GradientDescent() {
+func GradientDescent(x, stepSize float64, f1, h1 fun) {
 	var GdX []float64
 	var GdY []float64
-	x := 0.0     // initial
-	alpha := 1.0 // initial step size
+
 	funcChange := f1(x)
 	funcCurrent := funcChange
 	GdX = append(GdX, x)
 	GdY = append(GdY, funcCurrent)
-	iter_num := 0
+	iterNum := 0
 
 	// condition of stopping iteration
-	for funcChange > 1e-10 && iter_num < 50 {
-		iter_num++
-		x = x - alpha*h1(x) // update x
+	for funcChange > 1e-10 && iterNum < 50 {
+		iterNum++
+		x = x - stepSize*h1(x) // update x
 		tmp := f1(x)
 		funcChange = math.Abs(funcCurrent - tmp) // The derivative approaches 0
 		funcCurrent = tmp
@@ -37,7 +40,7 @@ func GradientDescent() {
 	}
 
 	fmt.Printf("final result: (%.5f, %.5f)\n", x, funcCurrent)
-	fmt.Printf("numbers of iteration: %d\n", iter_num)
+	fmt.Printf("numbers of iteration: %d\n", iterNum)
 	fmt.Println(GdX)
 	fmt.Println(GdY)
 }
