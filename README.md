@@ -11,6 +11,7 @@ maintain, easy to get started with, and offers strong performance. I hope to pro
 stronger performance while being user-friendly.
 
 The "app" directory contains various implementations of machine learning algorithms
+
 The "docs" directory includes algorithm implementation principles illustrated using mind maps.
 
 
