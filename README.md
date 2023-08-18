@@ -15,5 +15,6 @@ corresponding test files or imported and run using the main function at the oute
 The "docs" directory includes algorithm implementation principles illustrated using mind maps.
 
 app目录里是各种机器学习相关的算法实现,通过对应的test文件可以运行，也可以通过最外面层目录的main函数导入运行。
-
-docs目录是用思维导图画的算法的实现原理
+![](app/gradient_descent.go)
+docs目录是用思维导图画的算法的实现原理 例如：
+![](docs/梯度下降的流程.png)
