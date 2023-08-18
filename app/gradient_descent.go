@@ -24,10 +24,11 @@ func GradientDescent() {
 	GdX = append(GdX, x)
 	GdY = append(GdY, funcCurrent)
 	iter_num := 0
+
 	// condition of stopping iteration
 	for funcChange > 1e-10 && iter_num < 50 {
 		iter_num++
-		x = x - alpha*h1(x)
+		x = x - alpha*h1(x) // update x
 		tmp := f1(x)
 		funcChange = math.Abs(funcCurrent - tmp) // The derivative approaches 0
 		funcCurrent = tmp
@@ -38,4 +39,5 @@ func GradientDescent() {
 	fmt.Printf("final result: (%.5f, %.5f)\n", x, funcCurrent)
 	fmt.Printf("numbers of iteration: %d\n", iter_num)
 	fmt.Println(GdX)
+	fmt.Println(GdY)
 }

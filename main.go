@@ -1,5 +1,7 @@
 package main
 
+import "mc/app"
+
 func main() {
-	GradientDescent
+	app.GradientDescent()
 }
